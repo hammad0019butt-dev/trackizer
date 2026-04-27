@@ -40,7 +40,7 @@ class _SocialoginState extends State<Socialogin> {
 
               // Apple Login
               MyButton.socialButton(
-                title: 'Sign up with Facebook',
+                title: 'Sign up with Apple',
                 onPressed: () {},
                 imgPath: 'apple_btn.png',
                 isElevation: true,
@@ -52,7 +52,7 @@ class _SocialoginState extends State<Socialogin> {
 
               // Google Login
               MyButton.socialButton(
-                title: 'Sign up with Facebook',
+                title: 'Sign up with Google',
                 onPressed: () {},
                 imgPath: 'google_btn.png',
                 isElevation: true,
