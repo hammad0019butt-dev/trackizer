@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:trackizer/common/color_extention.dart';
 import 'package:trackizer/common_widgets/button/my_button.dart';
+import 'package:trackizer/view/login/social%20login.dart';
 
 class WelcomeView extends StatefulWidget {
   const WelcomeView({super.key});
@@ -62,7 +63,7 @@ class _WelcomeViewState extends State<WelcomeView> {
 
                   // Message Text
                   Text(
-                    'Congue malesuada in ac justo, a tristique\nleo massa. Arcue leo leo urna risus.',
+                    'By registering, you agree to our Terms of use, learn\nhow we collect, use and share your data.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: TColor.grey10,
@@ -76,7 +77,12 @@ class _WelcomeViewState extends State<WelcomeView> {
                   // Primary button
                   MyButton.primaryButton(
                     title: "Get started",
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => Socialogin()),
+                      );
+                    },
                     imgPath: "primary_btn.png",
                     isElevation: true,
                   ),

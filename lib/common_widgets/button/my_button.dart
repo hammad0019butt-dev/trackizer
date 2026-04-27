@@ -45,4 +45,68 @@ class MyButton {
       ),
     );
   }
+
+  // Social Button
+  static Widget socialButton({
+    required String title,
+    required VoidCallback onPressed,
+    required String imgPath,
+    required bool isElevation,
+    required Color shadowColor,
+    required String iconPath,
+    Color? iconColor,
+    Color? titleColor,
+  }) {
+    return InkWell(
+      onTap: onPressed,
+      child: Container(
+        width: 280,
+        height: 40,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(100),
+          image: DecorationImage(image: AssetImage("assets/images/$imgPath")),
+          boxShadow: isElevation == true
+              ? <BoxShadow>[
+                  BoxShadow(
+                    color: shadowColor,
+                    offset: Offset(0, 7),
+                    blurRadius: 10,
+                  ),
+                ]
+              : <BoxShadow>[
+                  BoxShadow(
+                    color: Colors.transparent,
+                    offset: Offset(0, 7),
+                    blurRadius: 0,
+                  ),
+                ],
+        ),
+        alignment: Alignment.center,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Icon
+            Image.asset(
+              "assets/images/$iconPath",
+              height: 18,
+              width: 18,
+              color: iconColor,
+            ),
+
+            SizedBox(width: 10),
+
+            // Text
+            Text(
+              title,
+              style: TextStyle(
+                color: titleColor,
+                fontSize: 14,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
