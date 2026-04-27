@@ -28,7 +28,7 @@ class _SocialoginState extends State<Socialogin> {
               SizedBox(height: 14),
               // App Logo
               SizedBox(
-                width: 250,
+                width: 200,
                 height: 40,
                 child: Image.asset(
                   "assets/images/app_logo.png",

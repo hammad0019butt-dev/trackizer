@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       // Theme of the app
       theme: ThemeData(
         // Scaffold Background Color
-        scaffoldBackgroundColor: TColor.grey,
+        scaffoldBackgroundColor: TColor.grey80,
 
         // Font Family
         fontFamily: 'Manrope',
