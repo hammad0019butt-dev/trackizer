@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:trackizer/common/color_extention.dart';
 import 'package:trackizer/common_widgets/button/my_button.dart';
+import 'package:trackizer/view/login/sign_up_view.dart';
 
 class Socialogin extends StatefulWidget {
   const Socialogin({super.key});
@@ -34,6 +35,7 @@ class _SocialoginState extends State<Socialogin> {
                   "assets/images/app_logo.png",
                   width: media.width,
                   height: media.height,
+                  fit: BoxFit.contain,
                   // fit: BoxFit.contain,
                 ),
               ),
@@ -94,7 +96,12 @@ class _SocialoginState extends State<Socialogin> {
               // Secondary Button (Sign up using E-mail)
               MyButton.primaryButton(
                 title: "Sign up using E-mail",
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignUpView()),
+                  );
+                },
                 imgPath: "secodry_btn.png",
                 isElevation: false,
               ),
@@ -111,6 +118,8 @@ class _SocialoginState extends State<Socialogin> {
                   fontWeight: FontWeight.w500,
                 ),
               ),
+
+              // SizedBox(height: 24),
             ],
           ),
         ),
