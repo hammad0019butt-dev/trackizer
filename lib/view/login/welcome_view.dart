@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:trackizer/common/color_extention.dart';
 import 'package:trackizer/common_widgets/button/my_button.dart';
+import 'package:trackizer/view/login/sign_in_view.dart';
 import 'package:trackizer/view/login/social%20login.dart';
 
 class WelcomeView extends StatefulWidget {
@@ -92,7 +93,12 @@ class _WelcomeViewState extends State<WelcomeView> {
                   // Secondary Button
                   MyButton.primaryButton(
                     title: "I have an account",
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignInView()),
+                      );
+                    },
                     imgPath: "secodry_btn.png",
                     isElevation: false,
                   ),

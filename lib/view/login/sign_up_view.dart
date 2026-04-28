@@ -1,10 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:trackizer/common/color_extention.dart';
 import 'package:trackizer/common_widgets/button/my_button.dart';
 import 'package:trackizer/common_widgets/meter/meter.dart';
 import 'package:trackizer/common_widgets/text/my_text.dart';
 import 'package:trackizer/common_widgets/text_field/my_text_field.dart';
+import 'package:trackizer/view/login/sign_in_view.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
@@ -121,10 +121,15 @@ class _SignUpViewState extends State<SignUpView> {
 
               const SizedBox(height: 24),
 
-              // Sign iIn Button
+              // Sign In Button
               MyButton.primaryButton(
                 title: "Sign In",
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignInView()),
+                  );
+                },
                 imgPath: "secodry_btn.png",
                 isElevation: false,
               ),

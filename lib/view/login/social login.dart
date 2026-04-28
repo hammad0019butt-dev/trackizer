@@ -120,6 +120,7 @@ class _SocialoginState extends State<Socialogin> {
               ),
 
               // SizedBox(height: 24),
+              
             ],
           ),
         ),
