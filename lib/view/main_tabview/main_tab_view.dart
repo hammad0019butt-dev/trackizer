@@ -33,21 +33,29 @@ class _MainTabViewState extends State<MainTabView> {
           // Pages
           PageStorage(bucket: pageStorageBucket, child: curruntTabView),
 
+          // Main Bottom Nav Bar
           SafeArea(
             child: Column(
               children: [
+                //
                 Spacer(),
 
+                // Bottom Nav Bar
                 Padding(
                   padding: EdgeInsets.all(18),
+                  //
                   child: Stack(
                     alignment: Alignment.center,
+                    //
                     children: [
+                      //
                       Stack(
                         alignment: Alignment.center,
                         children: [
+                          // Bottom Nav Bar background
                           Image.asset("assets/images/bottom_bar_bg.png"),
 
+                          // Bottom Nav bar Icons
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             crossAxisAlignment: CrossAxisAlignment.center,
