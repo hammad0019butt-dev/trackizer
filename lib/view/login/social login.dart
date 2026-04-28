@@ -97,7 +97,7 @@ class _SocialoginState extends State<Socialogin> {
               MyButton.primaryButton(
                 title: "Sign up using E-mail",
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => SignUpView()),
                   );
@@ -120,7 +120,6 @@ class _SocialoginState extends State<Socialogin> {
               ),
 
               // SizedBox(height: 24),
-              
             ],
           ),
         ),

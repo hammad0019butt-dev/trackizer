@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trackizer/common/color_extention.dart';
 import 'package:trackizer/common_widgets/button/my_button.dart';
 import 'package:trackizer/common_widgets/text/my_text.dart';
 import 'package:trackizer/common_widgets/text_field/my_text_field.dart';
 import 'package:trackizer/view/login/sign_up_view.dart';
+import 'package:trackizer/view/main_tabview/main_tab_view.dart';
+import 'package:trackizer/view/splash%20screen/splash_view.dart';
 
 class SignInView extends StatefulWidget {
   const SignInView({super.key});
@@ -141,9 +144,18 @@ class _SignInViewState extends State<SignInView> {
               MyButton.primaryButton(
                 imgPath: 'primary_btn.png',
                 isElevation: true,
-                onPressed: () {
-                  emailController.clear();
-                  passwordController.clear();
+                onPressed: () async {
+                  final prefs = await SharedPreferences.getInstance();
+                  await prefs.setBool(SplashViewState.LOGIN_KEY, true);
+
+                  if (!context.mounted) {
+                    return;
+                  }
+
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (_) => MainTabView()),
+                  );
                 },
                 title: 'Sign In',
               ),

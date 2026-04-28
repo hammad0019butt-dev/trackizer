@@ -1,10 +1,16 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trackizer/common/color_extention.dart';
 import 'package:trackizer/common_widgets/button/my_button.dart';
 import 'package:trackizer/common_widgets/meter/meter.dart';
 import 'package:trackizer/common_widgets/text/my_text.dart';
 import 'package:trackizer/common_widgets/text_field/my_text_field.dart';
 import 'package:trackizer/view/login/sign_in_view.dart';
+import 'package:trackizer/view/login/social%20login.dart';
+import 'package:trackizer/view/main_tabview/main_tab_view.dart';
+import 'package:trackizer/view/splash%20screen/splash_view.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
@@ -101,12 +107,40 @@ class _SignUpViewState extends State<SignUpView> {
               MyButton.primaryButton(
                 imgPath: 'primary_btn.png',
                 isElevation: true,
-                onPressed: () {
+                onPressed: () async {
+                  var prefs = await SharedPreferences.getInstance();
+
+                  prefs.setBool(SplashViewState.LOGIN_KEY, true);
+
+                  if (!context.mounted) {
+                    return;
+                  }
+
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => MainTabView()),
+                  );
+
                   emailController.clear();
                   setPasswordController.clear();
                   conformPasswordController.clear();
                 },
-                title: 'Get started, it\'s free',
+                title: 'Sign Up',
+              ),
+
+              SizedBox(height: 24),
+
+              // Sign Up using social account
+              MyButton.primaryButton(
+                title: "Sign Up with social accounts",
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => Socialogin()),
+                  );
+                },
+                imgPath: "secodry_btn.png",
+                isElevation: false,
               ),
 
               SizedBox(height: 60),
@@ -125,7 +159,7 @@ class _SignUpViewState extends State<SignUpView> {
               MyButton.primaryButton(
                 title: "Sign In",
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => SignInView()),
                   );

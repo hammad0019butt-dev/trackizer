@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:trackizer/common/color_extention.dart';
 import 'package:trackizer/common_widgets/button/my_button.dart';
 import 'package:trackizer/view/login/sign_in_view.dart';
@@ -9,17 +8,10 @@ class WelcomeView extends StatefulWidget {
   const WelcomeView({super.key});
 
   @override
-  State<WelcomeView> createState() => _WelcomeViewState();
+  State<WelcomeView> createState() => WelcomeViewState();
 }
 
-class _WelcomeViewState extends State<WelcomeView> {
-  @override
-  void initState() {
-    super.initState();
-
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
-  }
-
+class WelcomeViewState extends State<WelcomeView> {
   @override
   Widget build(BuildContext context) {
     // Responsiveness

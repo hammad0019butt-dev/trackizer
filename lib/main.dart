@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trackizer/common/color_extention.dart';
-import 'package:trackizer/view/login/welcome_view.dart';
+import 'package:trackizer/view/splash%20screen/splash_view.dart';
 
 void main() {
   runApp(MyApp());
@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
       ),
 
       // Starting Point
-      home: WelcomeView(),
+      home: SplashView(),
     );
   }
 }
