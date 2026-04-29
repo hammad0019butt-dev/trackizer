@@ -80,7 +80,7 @@ class _HomeViewState extends State<HomeView> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Container
+            // Progress Bar and boxes
             Container(
               height: media.width * 1.1,
               decoration: BoxDecoration(
@@ -108,7 +108,7 @@ class _HomeViewState extends State<HomeView> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // Subscribe
+                  // Subscribtion Tap
                   Expanded(
                     child: MyButton.mySegmentButton(
                       title: "Your Subscriptions",
@@ -123,7 +123,7 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ),
 
-                  // Upcoming Bills
+                  // Upcoming Bills Tap
                   Expanded(
                     child: MyButton.mySegmentButton(
                       title: "Upcoming Bills",
@@ -143,8 +143,9 @@ class _HomeViewState extends State<HomeView> {
               ),
             ),
 
-            // List
+            // List (Subscriptions / Bills)
             isSubscribed
+                // Subscriptions List
                 ? ListView.builder(
                     padding: EdgeInsets.symmetric(vertical: 12),
                     itemCount: yourSubscriptionList.length,
@@ -166,6 +167,7 @@ class _HomeViewState extends State<HomeView> {
                       );
                     },
                   )
+                // Bills List
                 : ListView.builder(
                     padding: EdgeInsets.symmetric(vertical: 12),
                     itemCount: yourSubscriptionList.length,
