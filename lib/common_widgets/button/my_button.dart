@@ -116,6 +116,7 @@ class MyButton {
     required String title,
     required VoidCallback onPressed,
     required bool isActive,
+    required double titleSize,
   }) {
     return InkWell(
       onTap: onPressed,
@@ -124,7 +125,7 @@ class MyButton {
             ? BoxDecoration(
                 color: TColor.grey60.withAlpha(44),
                 border: Border.all(color: TColor.border),
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(14),
               )
             : null,
 
@@ -133,7 +134,7 @@ class MyButton {
         child: MyText(
           text: title,
           textColor: isActive == true ? TColor.primaryText : TColor.grey40,
-          textSize: 14,
+          textSize: 12,
           textWeight: FontWeight.w600,
           letterSpacing: 1.2,
         ),

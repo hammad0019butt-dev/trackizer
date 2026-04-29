@@ -5,7 +5,7 @@ import 'package:trackizer/common/color_extention.dart';
 import 'package:trackizer/common_widgets/button/my_button.dart';
 
 class HomeView extends StatefulWidget {
-  HomeView({super.key});
+  const HomeView({super.key});
 
   @override
   State<HomeView> createState() => _HomeViewState();
@@ -13,6 +13,14 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   bool isSubscribed = true;
+  List yourSubscriptionList = [
+    {"name": "Spotify", "icons": "", "price": "5.99"},
+    {"name": "YouTube Premium", "icons": "", "price": "18.99"},
+    {"name": "Microsoft OneDrive", "icons": "", "price": "29.99"},
+    {"name": "Netflix", "icons": "", "price": "15.00"},
+    
+  ];
+  List upcomingBillsList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +53,7 @@ class _HomeViewState extends State<HomeView> {
               padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
               decoration: BoxDecoration(
                 color: TColor.black,
-                borderRadius: BorderRadius.circular(18),
+                borderRadius: BorderRadius.circular(20),
               ),
 
               // Child
@@ -57,6 +65,7 @@ class _HomeViewState extends State<HomeView> {
                   Expanded(
                     child: MyButton.mySegmentButton(
                       title: "Your Subscriptions",
+                      titleSize: isSubscribed == true ? 14 : 12,
                       onPressed: () {
                         setState(() {
                           isSubscribed = !isSubscribed;
@@ -66,10 +75,11 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ),
 
-                  //
+                  // Upcoming Bills
                   Expanded(
                     child: MyButton.mySegmentButton(
                       title: "Upcoming Bills",
+                      titleSize: isSubscribed == true ? 14 : 12,
                       onPressed: () {
                         setState(() {
                           isSubscribed = !isSubscribed;
