@@ -22,7 +22,7 @@ class WelcomeViewState extends State<WelcomeView> {
       body: Stack(
         alignment: Alignment.topCenter,
         children: [
-          // Bg Image
+          // Background Image
           Image.asset(
             "assets/images/welcome_screen.png",
             width: media.width,
@@ -40,16 +40,11 @@ class WelcomeViewState extends State<WelcomeView> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  // Logo
-                  SizedBox(
-                    width: 200,
-                    height: 40,
-                    child: Image.asset(
-                      "assets/images/app_logo.png",
-                      width: media.width,
-                      height: media.height,
-                      // fit: BoxFit.contain,
-                    ),
+                  // App Logo
+                  Image.asset(
+                    "assets/images/welcome_screen.png",
+                    width: media.width * 0.5,
+                    fit: BoxFit.fill,
                   ),
 
                   Spacer(),

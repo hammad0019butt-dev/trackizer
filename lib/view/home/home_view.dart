@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:trackizer/common/color_extention.dart';
 import 'package:trackizer/common_widgets/button/my_button.dart';
+import 'package:trackizer/common_widgets/status_box_button.dart';
+import 'package:trackizer/common_widgets/text/my_text.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -83,12 +85,101 @@ class _HomeViewState extends State<HomeView> {
             // Progress Bar and boxes
             Container(
               height: media.width * 1.1,
+              // padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: TColor.grey80,
+                color: TColor.grey70.withAlpha(170),
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(25),
                   bottomRight: Radius.circular(25),
                 ),
+              ),
+
+              // Child
+              child: Stack(
+                // Aligment of contents
+                alignment: Alignment.center,
+
+                // Contents
+                children: [
+                  // Image
+                  Image.asset(
+                    "assets/images/home_bg.png",
+                    height: double.infinity,
+                  ),
+
+                  // Balance
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      // App Logo
+                      Image.asset(
+                        "assets/images/app_logo.png",
+                        width: media.width * 0.25,
+                        fit: BoxFit.fill,
+                      ),
+
+                      SizedBox(height: 6),
+
+                      // Bill
+                      MyText(
+                        text: "\$1,235",
+                        textColor: TColor.primaryText,
+                        textSize: 40,
+                        textWeight: FontWeight.w700,
+                      ),
+
+                      SizedBox(height: 6),
+
+                      // Text Message
+                      MyText(
+                        text: "This month bills.",
+                        textColor: TColor.grey40,
+                        textSize: 14,
+                        textWeight: FontWeight.w500,
+                      ),
+
+                      SizedBox(height: 10),
+
+                      // Button ( See Your Budgets)
+                      InkWell(
+                        onTap: () {},
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                            vertical: 10,
+                            horizontal: 18,
+                          ),
+                          decoration: BoxDecoration(
+                            color: TColor.grey60.withAlpha(50),
+                            border: Border.all(
+                              color: TColor.grey60.withAlpha(100),
+                            ),
+                            borderRadius: BorderRadius.circular(14),
+                          ),
+
+                          child: MyText(
+                            text: "See your budgets",
+                            textColor: TColor.primaryText,
+                            textSize: 12,
+                            textWeight: FontWeight.w600,
+                            letterSpacing: 1.2,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Column(
+                      children: [
+                        Spacer(),
+
+                        // Status Bo Buttons (3x)
+                        StatusBoxButtons(),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
 

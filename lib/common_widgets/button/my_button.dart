@@ -161,7 +161,7 @@ class MyButton {
       child: InkWell(
         onTap: onPressed,
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+          padding: EdgeInsets.symmetric(horizontal: 6, vertical: 10),
           height: 64,
           decoration: BoxDecoration(
             // color: TColor.grey60.withAlpha(44),
@@ -226,7 +226,7 @@ class MyButton {
       child: InkWell(
         onTap: onPressed,
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
           height: 64,
           decoration: BoxDecoration(
             // color: TColor.grey60.withAlpha(44),
@@ -246,7 +246,7 @@ class MyButton {
                 height: 46,
                 width: 46,
                 decoration: BoxDecoration(
-                  color: TColor.grey70.withAlpha(54),
+                  color: TColor.grey70.withAlpha(80),
                   borderRadius: BorderRadius.circular(14),
                 ),
 
@@ -306,6 +306,60 @@ class MyButton {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  // Status Button
+  static Widget statusButton({
+    required String title,
+    required String value,
+    required Color statusColor,
+    required VoidCallback onPressed,
+  }) {
+    return InkWell(
+      onTap: onPressed,
+      child: Stack(
+        alignment: Alignment.topCenter,
+        children: [
+          Container(
+            height: 68,
+            decoration: BoxDecoration(
+              color: TColor.grey70.withAlpha(100),
+              border: Border.all(color: TColor.grey60.withAlpha(100)),
+              borderRadius: BorderRadius.circular(14),
+            ),
+
+            alignment: Alignment.center,
+
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Title
+                MyText(
+                  text: title,
+                  textColor: TColor.grey40,
+                  textSize: 12,
+                  textWeight: FontWeight.w500,
+                  letterSpacing: 0.2,
+                ),
+
+                SizedBox(height: 4),
+
+                // Vlaue
+                MyText(
+                  text: value,
+                  textColor: TColor.primaryText,
+                  textSize: 16,
+                  textWeight: FontWeight.w600,
+                  letterSpacing: 0.2,
+                ),
+              ],
+            ),
+          ),
+
+          Container(width: 60, height: 1, color: statusColor),
+        ],
       ),
     );
   }

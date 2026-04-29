@@ -27,17 +27,13 @@ class _SocialoginState extends State<Socialogin> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(height: 14),
+              
               // App Logo
-              SizedBox(
-                width: 200,
-                height: 40,
-                child: Image.asset(
-                  "assets/images/app_logo.png",
-                  width: media.width,
-                  height: media.height,
-                  fit: BoxFit.contain,
-                  // fit: BoxFit.contain,
-                ),
+              Image.asset(
+                "assets/images/app_logo.png",
+                width: media.width * 0.5,
+                fit: BoxFit.contain,
+                // fit: BoxFit.contain,
               ),
 
               Spacer(),

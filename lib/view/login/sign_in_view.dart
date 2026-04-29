@@ -35,15 +35,10 @@ class _SignInViewState extends State<SignInView> {
               const SizedBox(height: 14),
 
               // AppLogo
-              SizedBox(
-                width: 200,
-                height: 40,
-                child: Image.asset(
-                  "assets/images/app_logo.png",
-                  height: media.height,
-                  width: media.width,
-                  fit: BoxFit.contain,
-                ),
+              Image.asset(
+                "assets/images/app_logo.png",
+                width: media.width * 0.5,
+                fit: BoxFit.contain,
               ),
 
               const SizedBox(height: 40),
