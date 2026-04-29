@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trackizer/common/color_extention.dart';
+import 'package:trackizer/common_widgets/text/my_text.dart';
 
 class MyButton {
   // Primary Button
@@ -105,6 +106,36 @@ class MyButton {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  // Segment Button
+  static Widget mySegmentButton({
+    required String title,
+    required VoidCallback onPressed,
+    required bool isActive,
+  }) {
+    return InkWell(
+      onTap: onPressed,
+      child: Container(
+        decoration: isActive == true
+            ? BoxDecoration(
+                color: TColor.grey60.withAlpha(44),
+                border: Border.all(color: TColor.border),
+                borderRadius: BorderRadius.circular(12),
+              )
+            : null,
+
+        alignment: Alignment.center,
+
+        child: MyText(
+          text: title,
+          textColor: isActive == true ? TColor.primaryText : TColor.grey40,
+          textSize: 14,
+          textWeight: FontWeight.w600,
+          letterSpacing: 1.2,
         ),
       ),
     );

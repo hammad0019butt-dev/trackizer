@@ -48,7 +48,7 @@ class _MainTabViewState extends State<MainTabView> {
                     alignment: Alignment.center,
                     //
                     children: [
-                      //
+                      // Bottom Nav bar content
                       Stack(
                         alignment: Alignment.center,
                         children: [

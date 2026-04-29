@@ -31,13 +31,16 @@ class TColor {
   static const Color grey20 = Color(0xFFC1C1CD);
   static const Color grey10 = Color(0xFFE0E0E6);
 
+  // Border COlor
+  static const Color border = Color(0xFF272727);
+
   // Text
   static const Color primaryText = Color(0xFFFFFFFF);
   static const Color secondaryText = grey60;
 
   // White
   static const Color white = Color(0xFFFFFFFF);
-  
 
-
+  // Black
+  static const Color black = Color(0xFF050505);
 }
