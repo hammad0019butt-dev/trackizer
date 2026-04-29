@@ -117,13 +117,14 @@ class MyButton {
     required VoidCallback onPressed,
     required bool isActive,
     required double titleSize,
+    double? letterSpacing,
   }) {
     return InkWell(
       onTap: onPressed,
       child: Container(
         decoration: isActive == true
             ? BoxDecoration(
-                color: TColor.grey60.withAlpha(44),
+                color: TColor.grey60.withAlpha(50),
                 border: Border.all(color: TColor.border),
                 borderRadius: BorderRadius.circular(14),
               )
@@ -136,7 +137,174 @@ class MyButton {
           textColor: isActive == true ? TColor.primaryText : TColor.grey40,
           textSize: 12,
           textWeight: FontWeight.w600,
-          letterSpacing: 1.2,
+          letterSpacing: letterSpacing,
+        ),
+      ),
+    );
+  }
+
+  // Subcription Button
+  static Widget subscriptionButton({
+    required Map sObj,
+    required VoidCallback onPressed,
+    required double titleSize,
+    required double priceSize,
+    Color? titleColor,
+    Color? priceColor,
+    FontWeight? titleWeight,
+    FontWeight? priceWeight,
+    double? titleSpacing,
+    double? priceSpacing,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8),
+      child: InkWell(
+        onTap: onPressed,
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+          height: 64,
+          decoration: BoxDecoration(
+            // color: TColor.grey60.withAlpha(44),
+            border: Border.all(color: TColor.border),
+            borderRadius: BorderRadius.circular(20),
+          ),
+
+          alignment: Alignment.center,
+
+          child: Row(
+            children: [
+              // Logo
+              Image.asset(sObj["icon"], width: 54, height: 54),
+
+              SizedBox(width: 8),
+
+              // Title
+              Expanded(
+                child: MyText(
+                  text: sObj["name"],
+                  textColor: titleColor!,
+                  textSize: titleSize,
+                  textWeight: titleWeight!,
+                  letterSpacing: titleSpacing,
+                ),
+              ),
+
+              SizedBox(width: 8),
+
+              // Price
+              MyText(
+                text: "\$${sObj["price"]}",
+                textColor: priceColor!,
+                textSize: priceSize,
+                textWeight: priceWeight!,
+                letterSpacing: priceSpacing,
+              ),
+
+              SizedBox(width: 8),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  // Bills Button
+  static Widget billsButton({
+    required Map sObj,
+    required VoidCallback onPressed,
+    required double titleSize,
+    required double priceSize,
+    Color? titleColor,
+    Color? priceColor,
+    FontWeight? titleWeight,
+    FontWeight? priceWeight,
+    double? titleSpacing,
+    double? priceSpacing,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8),
+      child: InkWell(
+        onTap: onPressed,
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+          height: 64,
+          decoration: BoxDecoration(
+            // color: TColor.grey60.withAlpha(44),
+            border: Border.all(color: TColor.border),
+            borderRadius: BorderRadius.circular(20),
+          ),
+
+          alignment: Alignment.center,
+
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // SizedBox(width: 8),
+              // leading
+              Container(
+                padding: EdgeInsets.all(4),
+                height: 46,
+                width: 46,
+                decoration: BoxDecoration(
+                  color: TColor.grey70.withAlpha(54),
+                  borderRadius: BorderRadius.circular(14),
+                ),
+
+                alignment: Alignment.center,
+
+                child: Expanded(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      // month
+                      MyText(
+                        text: "Jun",
+                        textColor: TColor.grey30,
+                        textSize: 10,
+                        textWeight: FontWeight.w500,
+                        letterSpacing: 0.2,
+                      ),
+
+                      // month
+                      MyText(
+                        text: "25",
+                        textColor: TColor.grey30,
+                        textSize: 14,
+                        textWeight: FontWeight.w600,
+                        letterSpacing: 0.2,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              SizedBox(width: 8),
+
+              // Title
+              Expanded(
+                child: MyText(
+                  text: sObj["name"],
+                  textColor: titleColor!,
+                  textSize: titleSize,
+                  textWeight: titleWeight!,
+                  letterSpacing: titleSpacing,
+                ),
+              ),
+
+              SizedBox(width: 8),
+
+              // Price
+              MyText(
+                text: "\$${sObj["price"]}",
+                textColor: priceColor!,
+                textSize: priceSize,
+                textWeight: priceWeight!,
+                letterSpacing: priceSpacing,
+              ),
+
+              SizedBox(width: 8),
+            ],
+          ),
         ),
       ),
     );

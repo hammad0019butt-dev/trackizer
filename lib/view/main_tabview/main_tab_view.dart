@@ -42,7 +42,7 @@ class _MainTabViewState extends State<MainTabView> {
 
                 // Bottom Nav Bar
                 Padding(
-                  padding: EdgeInsets.all(18),
+                  padding: EdgeInsets.symmetric(horizontal: 18, vertical: 0),
                   //
                   child: Stack(
                     alignment: Alignment.center,

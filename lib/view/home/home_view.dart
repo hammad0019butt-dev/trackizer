@@ -13,14 +13,60 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   bool isSubscribed = true;
+
+  // Subribtion brands list
   List yourSubscriptionList = [
-    {"name": "Spotify", "icons": "", "price": "5.99"},
-    {"name": "YouTube Premium", "icons": "", "price": "18.99"},
-    {"name": "Microsoft OneDrive", "icons": "", "price": "29.99"},
-    {"name": "Netflix", "icons": "", "price": "15.00"},
-    
+    // Spotify
+    {
+      "name": "Spotify",
+      "icon": "assets/images/spotify_logo.png",
+      "price": "5.99",
+    },
+
+    // YouTube
+    {
+      "name": "YouTube Premium",
+      "icon": "assets/images/youtube_logo.png",
+      "price": "18.99",
+    },
+
+    // Microsoft
+    {
+      "name": "Microsoft OneDrive",
+      "icon": "assets/images/onedrive_logo.png",
+      "price": "29.99",
+    },
+
+    // Netflix
+    {
+      "name": "Netflix",
+      "icon": "assets/images/netflix_logo.png",
+      "price": "15.00",
+    },
   ];
-  List upcomingBillsList = [];
+
+  // Upcoming Bills List
+  List upcomingBillsList = [
+    // Spotify
+    {"name": "Spotify", "date": DateTime(2026, 05, 14), "price": "5.99"},
+
+    // YouTube
+    {
+      "name": "YouTube Premium",
+      "date": DateTime(2026, 05, 14),
+      "price": "18.99",
+    },
+
+    // Microsoft
+    {
+      "name": "Microsoft OneDrive",
+      "date": DateTime(2026, 05, 18),
+      "price": "29.99",
+    },
+
+    // Netflix
+    {"name": "Netflix", "date": DateTime(2026, 06, 21), "price": "15.00"},
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +92,12 @@ class _HomeViewState extends State<HomeView> {
               ),
             ),
 
-            // Container
+            SizedBox(height: 24),
+
+            // Custom Segment Tab bar
             Container(
               height: 54,
-              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              margin: EdgeInsets.symmetric(horizontal: 20),
               padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
               decoration: BoxDecoration(
                 color: TColor.black,
@@ -59,7 +107,6 @@ class _HomeViewState extends State<HomeView> {
               // Child
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   // Subscribe
                   Expanded(
@@ -72,6 +119,7 @@ class _HomeViewState extends State<HomeView> {
                         });
                       },
                       isActive: isSubscribed,
+                      letterSpacing: 1.2,
                     ),
                   ),
 
@@ -86,6 +134,7 @@ class _HomeViewState extends State<HomeView> {
                         });
                       },
                       isActive: !isSubscribed,
+                      letterSpacing: 1.5,
                     ),
                   ),
 
@@ -94,7 +143,52 @@ class _HomeViewState extends State<HomeView> {
               ),
             ),
 
-            //
+            // List
+            isSubscribed
+                ? ListView.builder(
+                    padding: EdgeInsets.symmetric(vertical: 12),
+                    itemCount: yourSubscriptionList.length,
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      var sObj = yourSubscriptionList[index] as Map? ?? {};
+                      return MyButton.subscriptionButton(
+                        sObj: sObj,
+                        onPressed: () {},
+                        titleSize: 14,
+                        priceSize: 14,
+                        titleWeight: FontWeight.w600,
+                        priceWeight: FontWeight.w600,
+                        titleColor: TColor.grey10,
+                        priceColor: TColor.grey10,
+                        titleSpacing: 0.4,
+                        priceSpacing: 0.4,
+                      );
+                    },
+                  )
+                : ListView.builder(
+                    padding: EdgeInsets.symmetric(vertical: 12),
+                    itemCount: yourSubscriptionList.length,
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      var sObj = upcomingBillsList[index] as Map? ?? {};
+                      return MyButton.billsButton(
+                        sObj: sObj,
+                        onPressed: () {},
+                        titleSize: 14,
+                        priceSize: 14,
+                        titleWeight: FontWeight.w600,
+                        priceWeight: FontWeight.w600,
+                        titleColor: TColor.grey10,
+                        priceColor: TColor.grey10,
+                        titleSpacing: 0.4,
+                        priceSpacing: 0.4,
+                      );
+                    },
+                  ),
+
+            SizedBox(height: 100),
           ],
         ),
       ),
