@@ -327,7 +327,7 @@ class MyButton {
             decoration: BoxDecoration(
               color: TColor.grey70.withAlpha(100),
               border: Border.all(color: TColor.grey60.withAlpha(100)),
-              borderRadius: BorderRadius.circular(14),
+              borderRadius: BorderRadius.circular(20),
             ),
 
             alignment: Alignment.center,

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:trackizer/common/color_extention.dart';
 import 'package:trackizer/common_widgets/button/my_button.dart';
+import 'package:trackizer/common_widgets/custom_arc_painter.dart';
 import 'package:trackizer/common_widgets/status_box_button.dart';
 import 'package:trackizer/common_widgets/text/my_text.dart';
 
@@ -82,7 +83,7 @@ class _HomeViewState extends State<HomeView> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Progress Bar and boxes
+            // Arc Painter Bar and boxes
             Container(
               height: media.width * 1.1,
               // padding: EdgeInsets.all(20),
@@ -107,6 +108,29 @@ class _HomeViewState extends State<HomeView> {
                     height: double.infinity,
                   ),
 
+                  // Arc Painter
+                  Container(
+                    width: media.width * 0.72,
+                    height: media.width * 0.72,
+                    padding: EdgeInsets.only(bottom: media.width * 0.1),
+                    child: CustomPaint(painter: CustomArcPainter()),
+                  ),
+
+                  // Sttings Icon
+                  Positioned(
+                    right: 20,
+                    top: 40,
+                    child: InkWell(
+                      onTap: () {},
+                      child: Image.asset(
+                        "assets/images/settings.png",
+                        width: 26,
+                        height: 26,
+                        color: TColor.grey30,
+                      ),
+                    ),
+                  ),
+
                   // Balance
                   Column(
                     mainAxisSize: MainAxisSize.min,
@@ -118,13 +142,13 @@ class _HomeViewState extends State<HomeView> {
                         fit: BoxFit.fill,
                       ),
 
-                      SizedBox(height: 6),
+                      SizedBox(height: 10),
 
                       // Bill
                       MyText(
                         text: "\$1,235",
                         textColor: TColor.primaryText,
-                        textSize: 40,
+                        textSize: 44,
                         textWeight: FontWeight.w700,
                       ),
 
@@ -138,9 +162,9 @@ class _HomeViewState extends State<HomeView> {
                         textWeight: FontWeight.w500,
                       ),
 
-                      SizedBox(height: 10),
+                      SizedBox(height: 34),
 
-                      // Button ( See Your Budgets)
+                      // Button ( See Your Budgets )
                       InkWell(
                         onTap: () {},
                         child: Container(
@@ -153,7 +177,7 @@ class _HomeViewState extends State<HomeView> {
                             border: Border.all(
                               color: TColor.grey60.withAlpha(100),
                             ),
-                            borderRadius: BorderRadius.circular(14),
+                            borderRadius: BorderRadius.circular(20),
                           ),
 
                           child: MyText(
@@ -168,6 +192,9 @@ class _HomeViewState extends State<HomeView> {
                     ],
                   ),
 
+                  // Arc Painter
+
+                  //
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Column(

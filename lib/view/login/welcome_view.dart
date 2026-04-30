@@ -42,7 +42,7 @@ class WelcomeViewState extends State<WelcomeView> {
                 children: [
                   // App Logo
                   Image.asset(
-                    "assets/images/welcome_screen.png",
+                    "assets/images/app_logo.png",
                     width: media.width * 0.5,
                     fit: BoxFit.fill,
                   ),
